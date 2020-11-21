@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -14,13 +12,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: MyHomePage(title: 'Currency convertor',),
+      home: const MyHomePage(title: 'Currency convertor',),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
@@ -43,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _throwError() {
     setState(() {
-      error = "You can only enter valid positive numbers!";
+      error = 'You can only enter valid positive numbers!';
     });
   }
 
@@ -61,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Image(
+            const Image(
               image: NetworkImage('https://lh3.googleusercontent.com/BeUE71bVNSFu-8D8XQpkGJuFMlvEcEp0z5hRd-PqDEiJd1ucpVkHF-6w5LTa0RTFZQ'),
               height: 200,
               width: 500,
@@ -69,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: 370,
               child: TextField(
-                keyboardType: TextInputType.numberWithOptions(),
+                keyboardType: const TextInputType.numberWithOptions(),
                 decoration: InputDecoration(
                   hintText: 'Enter the amount in EUR',
                   errorText: error,
@@ -82,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: const Text('Convert'),
               onPressed: () {
-                if (_inputValue.contains(new RegExp("^[0-9]+(\\.[0-9]+)?\$")) == true) {
+                if (_inputValue.contains(RegExp('^[0-9]+(\\.[0-9]+)?\$')) == true) {
 
                   error = null;
                   _convert(_inputValue);
