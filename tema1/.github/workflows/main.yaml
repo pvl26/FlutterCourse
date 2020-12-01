@@ -9,7 +9,7 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           channel: stable
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Setup repository
         run: flutter pub get
       - name: Format code
@@ -22,7 +22,7 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           channel: stable
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Setup repository
         run: flutter pub get
       - name: Analyze code

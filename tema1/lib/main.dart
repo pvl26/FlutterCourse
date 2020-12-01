@@ -4,15 +4,16 @@ import 'package:flutter/services.dart';
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Project One',
-      theme: ThemeData(
-        primarySwatch: Colors.blue
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const MyHomePage(
+        title: 'Currency convertor',
       ),
-      home: const MyHomePage(title: 'Currency convertor',),
     );
   }
 }
@@ -60,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             const Image(
-              image: NetworkImage('https://lh3.googleusercontent.com/BeUE71bVNSFu-8D8XQpkGJuFMlvEcEp0z5hRd-PqDEiJd1ucpVkHF-6w5LTa0RTFZQ'),
+              image: NetworkImage(
+                  'https://lh3.googleusercontent.com/BeUE71bVNSFu-8D8XQpkGJuFMlvEcEp0z5hRd-PqDEiJd1ucpVkHF-6w5LTa0RTFZQ'),
               height: 200,
               width: 500,
             ),
@@ -80,8 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: const Text('Convert'),
               onPressed: () {
-                if (_inputValue.contains(RegExp('^[0-9]+(\\.[0-9]+)?\$')) == true) {
-
+                if (_inputValue.contains(RegExp('^[0-9]+(\\.[0-9]+)?\$')) ==
+                    true) {
                   error = null;
                   _convert(_inputValue);
                 } else {
